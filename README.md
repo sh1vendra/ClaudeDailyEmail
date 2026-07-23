@@ -24,7 +24,17 @@ On mobile, tapping the `claude://` link in the email opens the Claude app with t
 
 ## Why
 
-The idea is to automate the "start my day with Claude" habit. Instead of remembering to open the app and type out the same kind of prompt every morning, an email lands in your inbox on a schedule with the prompt already prepared — you just tap the link and hit send in the app.
+Claude's usage limits don't reset at midnight — they reset on a rolling 5-hour window that starts from your *first message* in that window. Whenever you send that first message, the clock starts. Everything after that counts against the same window until it expires 5 hours later, at which point a fresh window opens on your next message.
+
+That mechanic has a hidden cost: if you don't message Claude until 11am, your first window of the day doesn't start until 11am. The hours before that — the ones you spent making coffee, commuting, or getting through email — are hours your usage window could already have been running, but wasn't. You're not saving anything by waiting; you're just delaying when your day's usage cycle begins, which pushes every window after it later too.
+
+This project closes that gap. An automated email lands at 7am (or whatever time you set) with a prompt already loaded behind a tap-to-open `claude://` link. The moment you wake up and tap it, your first window of the day starts — before you've even had coffee, let alone opened your laptop. Concretely, that means:
+
+- Your rolling window resets early, so you have a full block of usage already running by the time you actually sit down to work
+- You stop losing hours to a window you simply forgot to start
+- Your usage cycle is front-loaded, so the windows that matter most — your actual working hours later in the day — aren't cut short by a start you delayed by accident
+
+If you use Claude seriously throughout the day, this is a few seconds of setup that removes a completely avoidable inefficiency from every single day.
 
 ## Prerequisites
 
