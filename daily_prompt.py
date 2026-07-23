@@ -10,9 +10,10 @@ TO_EMAIL = os.environ["TO_EMAIL"]
 CLAUDE_URL = "https://claude.ai/new"
 
 SUGGESTED_PROMPT = (
-    "Give me a short, thoughtful daily briefing: include a motivational "
-    "thought, a fun fact, and a suggestion for something productive to "
-    "focus on today."
+    "Search the web for today's weather forecast for San Marcos, Texas, "
+    "including whether it will rain, and the high and low temperatures. "
+    "Then check my Google Calendar for any events, meetings, or reminders "
+    "scheduled for today. Give me a short summary of both."
 )
 
 
