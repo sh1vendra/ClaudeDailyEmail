@@ -2,12 +2,11 @@ import os
 import smtplib
 from datetime import date
 from email.message import EmailMessage
+from urllib.parse import quote
 
 EMAIL_ADDRESS = os.environ["EMAIL_ADDRESS"]
 EMAIL_APP_PASSWORD = os.environ["EMAIL_APP_PASSWORD"]
 TO_EMAIL = os.environ["TO_EMAIL"]
-
-CLAUDE_URL = "https://claude.ai/new"
 
 SUGGESTED_PROMPT = (
     "Search the web for today's weather forecast for San Marcos, Texas, "
@@ -18,10 +17,13 @@ SUGGESTED_PROMPT = (
 
 
 def build_email_body(today: str) -> str:
+    claude_link = f"claude://claude.ai/new?q={quote(SUGGESTED_PROMPT)}"
     return (
+        "Good morning Shiv Don. Ready to conquer today?\n\n"
         f"Today is {today}.\n\n"
-        f"Start your daily Claude session here: {CLAUDE_URL}\n\n"
-        "Suggested prompt to copy and paste:\n"
+        "Tap to start your Claude session with today's prompt already loaded:\n"
+        f"{claude_link}\n\n"
+        "If the link doesn't open the app, you can also copy this prompt manually:\n"
         "---\n"
         f"{SUGGESTED_PROMPT}\n"
         "---\n"
