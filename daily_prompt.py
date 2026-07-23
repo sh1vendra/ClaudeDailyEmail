@@ -19,7 +19,7 @@ SUGGESTED_PROMPT = (
 def build_email_body(today: str) -> str:
     claude_link = f"claude://claude.ai/new?q={quote(SUGGESTED_PROMPT)}"
     return (
-        "Good morning Shiv Don. Ready to conquer today?\n\n"
+        "Good morning Boss. Ready to conquer today?\n\n"
         f"Today is {today}.\n\n"
         "Tap to start your Claude session with today's prompt already loaded:\n"
         f"{claude_link}\n\n"
